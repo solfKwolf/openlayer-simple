@@ -6,32 +6,29 @@
 import { ref, onMounted } from "vue";
 import "ol/ol.css";
 import Map from "ol/Map";
-import OSM from "ol/source/OSM";
 import TileLayer from "ol/layer/Tile";
 import View from "ol/View";
 import { fromLonLat } from "ol/proj";
-import TileDebug from "ol/source/TileDebug";
+import XYZ from "ol/source/XYZ";
 
 export default {
   name: "Map",
   setup() {
     const mapRef = ref();
-    const osmSource = new OSM();
 
     onMounted(() => {
       const map = new Map({
         target: mapRef.value,
         layers: [
           new TileLayer({
-            source: osmSource,
-          }),
-          new TileLayer({
-            source: new TileDebug(),
+            source: new XYZ({
+              url: "http://81.68.100.121:3000/{z}/{x}/{y}.png",
+            }),
           }),
         ],
         view: new View({
           center: fromLonLat([116.67748810935825, 23.356809081282396]),
-          zoom: 2,
+          zoom: 12,
         }),
       });
       console.log(map);

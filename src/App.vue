@@ -10,6 +10,7 @@
         <el-menu router>
           <el-menu-item index="/proj4326">4326投影地图</el-menu-item>
           <el-menu-item index="/proj3857">3857投影地图</el-menu-item>
+          <el-menu-item index="/gaode">高德地图</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>

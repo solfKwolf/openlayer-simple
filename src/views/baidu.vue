@@ -10,23 +10,18 @@ import OSM from "ol/source/OSM";
 import TileLayer from "ol/layer/Tile";
 import View from "ol/View";
 import { fromLonLat } from "ol/proj";
-import TileDebug from "ol/source/TileDebug";
 
 export default {
   name: "Map",
   setup() {
     const mapRef = ref();
-    const osmSource = new OSM();
 
     onMounted(() => {
       const map = new Map({
         target: mapRef.value,
         layers: [
           new TileLayer({
-            source: osmSource,
-          }),
-          new TileLayer({
-            source: new TileDebug(),
+            source: new OSM(),
           }),
         ],
         view: new View({

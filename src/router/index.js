@@ -31,6 +31,11 @@ const routes = [
     name: "Proj3857",
     component: () => import("../views/Proj3857.vue"),
   },
+  {
+    path: "/gaode",
+    name: "Gaode",
+    component: () => import("../views/Gaode.vue"),
+  },
 ];
 
 const router = createRouter({

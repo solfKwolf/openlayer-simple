@@ -12,6 +12,7 @@ import WMTS from "ol/source/WMTS";
 import { get as getProjection } from "ol/proj";
 import WMTSTileGrid from "ol/tilegrid/WMTS";
 import { getTopLeft, getWidth } from "ol/extent";
+import TileDebug from "ol/source/TileDebug";
 
 export default {
   name: "Map",
@@ -45,6 +46,11 @@ export default {
                 resolutions: resolutions,
                 matrixIds: matrixIds,
               }),
+            }),
+          }),
+          new TileLayer({
+            source: new TileDebug({
+              projection: "EPSG:4326",
             }),
           }),
         ],
